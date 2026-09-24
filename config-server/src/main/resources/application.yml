@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/config-repo
+            - file:../config-repo
+            - file:./config-repo
+
+# TODO Câu 1: Cấu hình nguồn lưu cấu hình (native/local hoặc git)
+#   - Gợi ý native: đọc các file trong thư mục ../config-repo của project
+#   - Gợi ý git   : trỏ tới một repository chứa các file cấu hình
